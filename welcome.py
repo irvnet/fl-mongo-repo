@@ -29,7 +29,9 @@ def WelcomeToMyapp():
     
 @app.route('/eyedrops')
 def eyedrops():
-    logging.warning("just writing to the log... if i can...")
+    logging.info("**********************")
+    logging.info("just writing to the log... if i can...")
+    logging.info("**********************")
     return 'just checking the eyedrops...'    
 
 @app.route('/createdb/<db>')
@@ -42,9 +44,16 @@ def create_db(db):
 
         url         = vcap[0]['credentials']['url']
         auth        = ( cl_username, cl_password )
+        
+    logging.info("**********************")
+    logging.info("vcap=" + vcap)
+    logging.info("cl_username=" + cl_username)
+    logging.info("cl_password=" + cl_password)
+    logging.info("url=" + url)
+    logging.info("**********************")
 
     except:
-        return 'A Cloudant service is not bound to the application.  Please bind a Cloudant service and try again.'
+        return 'uh oh... i think something went wrong...'
 
     requests.put( url + '/' + db, auth=auth )
     return 'Database %s created.' % db
