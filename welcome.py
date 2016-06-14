@@ -25,7 +25,7 @@ def Welcome():
 
 @app.route('/myapp')
 def WelcomeToMyapp():
-     vcap_config = os.environ.get('VCAP_SERVICES')
+     #vcap_config = os.environ.get('VCAP_SERVICES')
     return 'Welcome to running flask and cloudant on Bluemix...'
          
 
