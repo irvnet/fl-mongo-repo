@@ -1,0 +1,11 @@
+applications:
+- path: .
+  memory: 128M
+  instances: 1
+  domain: mybluemix.net
+  name: fl-mongo
+  host: fl-mongo
+  disk_quota: 1024M
+  services:
+  - Cloudant NoSQL DB-ds
+  buildpack: python_buildpack
