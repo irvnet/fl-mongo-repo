@@ -44,7 +44,7 @@ def create_db(db):
         auth        = ( cl_username, cl_password )
         
    #logging.warning('**********************')
-    logging.warning('vcap=' + vcap)
+    logging.warning(vcap)
    # logging.warning('cl_username=' + cl_username)
    # logging.warning('cl_password=' + cl_password)
    # logging.warning('url=' + url)
