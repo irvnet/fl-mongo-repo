@@ -43,12 +43,12 @@ def create_db(db):
         url         = vcap[0]['credentials']['url']
         auth        = ( cl_username, cl_password )
         
-   # logging.info('**********************')
-   # logging.info('vcap=' + vcap)
-   # logging.info('cl_username=' + cl_username)
-   # logging.info('cl_password=' + cl_password)
-   # logging.info('url=' + url)
-   # logging.info('**********************')
+   #logging.warning('**********************')
+    logging.warning('vcap=' + vcap)
+   # logging.warning('cl_username=' + cl_username)
+   # logging.warning('cl_password=' + cl_password)
+   # logging.warning('url=' + url)
+   # logging.warning('**********************')
 
     except:
         return 'uh oh... i think something went wrong...'
