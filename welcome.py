@@ -23,7 +23,26 @@ def Welcome():
 
 @app.route('/myapp')
 def WelcomeToMyapp():
-    return 'Welcome again to my app running on Bluemix!'
+    return 'Welcome to running flask and cloudant on Bluemix...'
+
+@app.route('/createdb/<db>')
+def create_db(db):
+    try:
+        vcap = json.loads(os.getenv("VCAP_SERVICES"))['cloudantNoSQLDB']
+
+        cl_username = vcap[0]['credentials']['username']
+        cl_password = vcap[0]['credentials']['password']
+
+        url         = vcap[0]['credentials']['url']
+        auth        = ( cl_username, cl_password )
+
+    except:
+        return 'A Cloudant service is not bound to the application.  Please bind a Cloudant service and try again.'
+
+    requests.put( url + '/' + db, auth=auth )
+    return 'Database %s created.' % db
+
+
 
 @app.route('/api/people')
 def GetPeople():
