@@ -37,19 +37,13 @@ def create_db(db):
     try:
         vcap = json.loads(os.getenv("VCAP_SERVICES"))['cloudantNoSQLDB']
 
-        cl_username = vcap[0]['credentials']['username']
-        cl_password = vcap[0]['credentials']['password']
+        # cl_username = vcap[0]['credentials']['username']
+        # cl_password = vcap[0]['credentials']['password']
 
-        url         = vcap[0]['credentials']['url']
-        auth        = ( cl_username, cl_password )
+        # url         = vcap[0]['credentials']['url']
+        # auth        = ( cl_username, cl_password )
         
-   #logging.warning('**********************')
-   # logging.warning(vcap)
-   # logging.warning('cl_username=' + cl_username)
-   # logging.warning('cl_password=' + cl_password)
-   # logging.warning('url=' + url)
-   # logging.warning('**********************')
-
+  
     except:
         return 'uh oh... i think something went wrong...'
 
