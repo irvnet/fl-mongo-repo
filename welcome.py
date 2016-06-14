@@ -13,9 +13,9 @@
 # limitations under the License.
 
 import os
-import logging
 
-from flask import Flask, jsonify
+
+from flask import Flask
 
 app = Flask(__name__)
 
@@ -25,30 +25,27 @@ def Welcome():
 
 @app.route('/myapp')
 def WelcomeToMyapp():
+     vcap_config = os.environ.get('VCAP_SERVICES')
     return 'Welcome to running flask and cloudant on Bluemix...'
-    
-@app.route('/eyedrops')
-def eyedrops():
-     return 'just checking the eyedrops...' 
-     
+         
 
 @app.route('/createdb/<db>')
 def create_db(db):
-    #try:
+    try:
         vcap = json.loads(os.getenv("VCAP_SERVICES"))['cloudantNoSQLDB']
 
-        # cl_username = vcap[0]['credentials']['username']
-        # cl_password = vcap[0]['credentials']['password']
+         cl_username = vcap[0]['credentials']['username']
+         cl_password = vcap[0]['credentials']['password']
 
-        # url         = vcap[0]['credentials']['url']
-        # auth        = ( cl_username, cl_password )
+         url         = vcap[0]['credentials']['url']
+         auth        = ( cl_username, cl_password )
         
   
     #except:
-    #    return 'uh oh... i think something went wrong...'
+        return 'uh oh... i think something went wrong...'
 
-    #requests.put( url + '/' + db, auth=auth )
-    #return 'Database %s created.' % db
+    requests.put( url + '/' + db, auth=auth )
+    return 'Database %s created.' % db
     return 'done with create...'
 
 
