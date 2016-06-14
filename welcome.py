@@ -29,24 +29,23 @@ def WelcomeToMyapp():
     return 'Welcome to running flask and cloudant on Bluemix...'
          
 
-@app.route('/createdb/<db>')
-def create_db(db):
-    try:
-        vcap = json.loads(os.getenv("VCAP_SERVICES"))['cloudantNoSQLDB']
-
-         cl_username = vcap[0]['credentials']['username']
-         cl_password = vcap[0]['credentials']['password']
-
-         url         = vcap[0]['credentials']['url']
-         auth        = ( cl_username, cl_password )
-        
+# @app.route('/createdb/<db>')
+#def create_db(db):
+#    try:
+#        vcap = json.loads(os.getenv("VCAP_SERVICES"))['cloudantNoSQLDB']
+#
+#         cl_username = vcap[0]['credentials']['username']
+#         cl_password = vcap[0]['credentials']['password']
+#
+#         url         = vcap[0]['credentials']['url']
+#         auth        = ( cl_username, cl_password )
+#        
   
-    #except:
-        return 'uh oh... i think something went wrong...'
+#    except:
+#        return 'uh oh... i think something went wrong...'
 
-    requests.put( url + '/' + db, auth=auth )
-    return 'Database %s created.' % db
-    return 'done with create...'
+#    requests.put( url + '/' + db, auth=auth )
+#    return 'Database %s created.' % db
 
 
 
