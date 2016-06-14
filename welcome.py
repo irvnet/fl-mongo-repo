@@ -27,6 +27,10 @@ def Welcome():
 @app.route('/myapp')
 def WelcomeToMyapp():
     return 'Welcome to running flask and cloudant on Bluemix...'
+    
+@app.route('/eyedrops')
+def eyedrops():
+    return 'just checking the eyedrops...'    
 
 @app.route('/createdb/<db>')
 def create_db(db):
