@@ -34,7 +34,7 @@ def eyedrops():
 
 @app.route('/createdb/<db>')
 def create_db(db):
-    try:
+    #try:
         vcap = json.loads(os.getenv("VCAP_SERVICES"))['cloudantNoSQLDB']
 
         # cl_username = vcap[0]['credentials']['username']
@@ -44,11 +44,12 @@ def create_db(db):
         # auth        = ( cl_username, cl_password )
         
   
-    except:
-        return 'uh oh... i think something went wrong...'
+    #except:
+    #    return 'uh oh... i think something went wrong...'
 
-    requests.put( url + '/' + db, auth=auth )
-    return 'Database %s created.' % db
+    #requests.put( url + '/' + db, auth=auth )
+    #return 'Database %s created.' % db
+    return 'done with create...'
 
 
 
