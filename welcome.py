@@ -13,12 +13,15 @@
 # limitations under the License.
 
 import os
+import logging
+
 from flask import Flask, jsonify
 
 app = Flask(__name__)
 
 @app.route('/')
 def Welcome():
+    logging.warning("just writing to the log... if i can...")
     return app.send_static_file('index.html')
 
 @app.route('/myapp')
