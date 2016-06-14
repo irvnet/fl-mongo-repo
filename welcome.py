@@ -21,7 +21,6 @@ app = Flask(__name__)
 
 @app.route('/')
 def Welcome():
-    logging.warning("just writing to the log... if i can...")
     return app.send_static_file('index.html')
 
 @app.route('/myapp')
@@ -30,6 +29,7 @@ def WelcomeToMyapp():
     
 @app.route('/eyedrops')
 def eyedrops():
+    logging.warning("just writing to the log... if i can...")
     return 'just checking the eyedrops...'    
 
 @app.route('/createdb/<db>')
