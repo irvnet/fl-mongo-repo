@@ -12,8 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os
-
+import os, json
 
 from flask import Flask
 
@@ -26,7 +25,9 @@ def Welcome():
 @app.route('/myapp')
 def WelcomeToMyapp():
     vcap_config = os.environ.get('VCAP_SERVICES')
-    return 'Welcome to running flask and cloudant on Bluemix...' + vcap_config
+    decoded_config = json.loads(vcap_config)
+    
+    return 'Welcome to running flask and cloudant on Bluemix...' + decoded_config
          
 
 # @app.route('/createdb/<db>')
